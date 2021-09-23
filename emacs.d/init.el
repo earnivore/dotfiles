@@ -249,6 +249,19 @@
         ("C-x t C-t" . treemacs-find-file)
         ("C-x t M-t" . treemacs-find-tag)))
 
+;; Enable more languages for Org Babel
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (R . t)
+   (python . t)))
+
+;; Enable spellchecker for Org mode
+;; https://github.com/MCotocel/dotfiles/blob/main/config/emacs/emacs.org#miscellaneous-minor-modes
+;; Requires a spellchecker binary on the system, i.e.:
+;; brew install aspell
+(add-hook 'org-mode-hook 'flyspell-mode)
+
 ;; Set a global key for compile with a Makefile
 ;; https://emacs.stackexchange.com/questions/17280/how-to-set-up-hotkey-for-compiling-c-code-and-run-the-compiled-file
 (global-set-key [f4] 'compile)
