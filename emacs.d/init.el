@@ -16,11 +16,21 @@
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t);; Set up MELPA
 ;; Refresh the emacsclient with `emacsclient -e "(kill-emacs)"`
 
+;; Require use-package
+;; https://github.com/MCotocel/dotfiles/blob/main/config/emacs/emacs.org#package-config
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(require 'use-package)
+
+(setq use-package-always-ensure t)
+(setq straight-use-package-by-default t)
+
 ;; Backup features
 ;; https://stackoverflow.com/questions/151945/how-do-i-control-how-emacs-makes-backup-files/18330742#18330742
 (defvar --backup-directory (concat user-emacs-directory "backups"))
 (if (not (file-exists-p --backup-directory))
-        (make-directory --backup-directory t))
+    (make-directory --backup-directory t))
 (setq backup-directory-alist `(("." . ,--backup-directory)))
 (setq make-backup-files t               ; backup of a file the first time it is saved.
       backup-by-copying t               ; don't clobber symlinks
@@ -41,7 +51,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(lsp-python-ms rainbow-delimiters smartparens treemacs company-box magit flycheck company lsp-ui lsp-mode cl-lib eldoc go-eldoc auto-complete go-mode)))
+   '(format-all all-the-icons lsp-python-ms rainbow-delimiters smartparens treemacs company-box magit flycheck company lsp-ui lsp-mode cl-lib eldoc go-eldoc auto-complete go-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -69,22 +79,22 @@
 
 ;; optionally
 (use-package lsp-ui
-	     :ensure t
-	     :commands lsp-ui-mode)
+  :ensure t
+  :commands lsp-ui-mode)
 
 ;; Enable go-mode.el
 (use-package go-mode
-	     :ensure t
-	     :init
-	     (add-hook 'before-save-hook 'gofmt-before-save)
-	     (add-hook 'go-mode-hook (lambda ()
-				       (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
-	     (add-hook 'go-mode-hook (lambda ()
-				       (local-set-key (kbd "C-c i") 'go-goto-imports)))
-	     (add-hook 'go-mode-hook (lambda ()
-				       (local-set-key (kbd \"M-.\") 'godef-jump)))
-	     ;;(add-hook 'go-mode-hook 'lsp-deferred)
-	     )
+  :ensure t
+  :init
+  (add-hook 'before-save-hook 'gofmt-before-save)
+  (add-hook 'go-mode-hook (lambda ()
+			    (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
+  (add-hook 'go-mode-hook (lambda ()
+			    (local-set-key (kbd "C-c i") 'go-goto-imports)))
+  (add-hook 'go-mode-hook (lambda ()
+			    (local-set-key (kbd \"M-.\") 'godef-jump)))
+  ;;(add-hook 'go-mode-hook 'lsp-deferred)
+  )
 
 ;; Set up before-save hooks to format buffer and add/delete imports.
 ;; Make sure you don't have other gofmt/goimports hooks enabled.
@@ -103,27 +113,17 @@
 ;; https://www.flycheck.org/en/latest/user/quickstart.html
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
-;; Add Company Box
-;; https://github.com/sebastiencs/company-box/
-
-;; (use-package company-box
-;; 	     :ensure t
-;;   :hook (company-mode . company-box-mode))
-
 ;; Add Company Mode
 (use-package company
-	     :ensure t
-	     :init
-	     (add-hook 'after-init-hook 'global-company-mode)
-	     :config
-	     ;; FIXME
-	     ;;(setq company-format-margin-function #'company-vscode-dark-icons-margin)
-	     (setq company-minimum-prefix-length 1 company-idle-delay 0.0) ;; default is 0.2
-	     )
+  :ensure t
+  :init
+  (add-hook 'after-init-hook 'global-company-mode)
+  :config
+  ;; FIXME
+  ;; (setq company-format-margin-function #'company-vscode-dark-icons-margin)
+  (setq company-minimum-prefix-length 1 company-idle-delay 0.0) ;; default is 0.2
+  )
 (setq company-format-margin-function #'company-detect-icons-margin)
-
-
-
 
 ;; Enable line numbers mode for all
 ;; programming modes
@@ -134,7 +134,20 @@
 ;; https://github.com/justbur/emacs-which-key/#melpa
 (use-package which-key
   :ensure t
+  :config (which-key-mode)
+  (which-key-setup-side-window-bottom)
+  (setq which-key-idle-delay 0.1)
   )
+
+;; Enable icons
+;; https://github.com/MCotocel/dotfiles/blob/main/config/emacs/emacs.org#icons
+(use-package all-the-icons
+  :ensure t)
+
+;; Enable Formatter
+(use-package format-all
+  :ensure t
+  :init (format-all-mode))
 
 ;; Enable Magit
 (use-package magit
@@ -239,4 +252,3 @@
 ;; Set a global key for compile with a Makefile
 ;; https://emacs.stackexchange.com/questions/17280/how-to-set-up-hotkey-for-compiling-c-code-and-run-the-compiled-file
 (global-set-key [f4] 'compile)
-
