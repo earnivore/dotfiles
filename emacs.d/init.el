@@ -41,7 +41,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(rainbow-delimiters smartparens treemacs company-box magit flycheck company lsp-ui lsp-mode cl-lib eldoc go-eldoc auto-complete go-mode)))
+   '(lsp-python-ms rainbow-delimiters smartparens treemacs company-box magit flycheck company lsp-ui lsp-mode cl-lib eldoc go-eldoc auto-complete go-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -50,23 +50,22 @@
  )
 
 ;; Enable LSP Mode
-;; (require 'lsp-mode)
-
 ;; https://emacs-lsp.github.io/lsp-mode/page/installation/#use-package
 (use-package lsp-mode
   :ensure t
   :init
   ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
   (setq lsp-keymap-prefix "C-c l")
-  (add-hook 'go-mode 'lsp)
+  ;;(add-hook 'go-mode 'lsp)
 
-  ;; :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
-  ;;        (python-mode . lsp)
-  ;;        (go-mode . lsp)
-  ;; 	 )
-  ;;        ;; if you want which-key integration
-  ;;        ;; (lsp-mode . lsp-enable-which-key-integration))
-  :commands lsp)
+  :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
+	 ;; Python LSP will need to be installed with
+	 ;; `pip install python-lsp-server` (A maintained fork of pyls)
+         (python-mode . lsp-deferred)
+         (go-mode . lsp-deferred)
+         ;; if you want which-key integration
+         (lsp-mode . lsp-enable-which-key-integration))
+  :commands (lsp lsp-deferred))
 
 ;; optionally
 (use-package lsp-ui
@@ -84,7 +83,7 @@
 				       (local-set-key (kbd "C-c i") 'go-goto-imports)))
 	     (add-hook 'go-mode-hook (lambda ()
 				       (local-set-key (kbd \"M-.\") 'godef-jump)))
-	     (add-hook 'go-mode-hook 'lsp-deferred)  	     
+	     ;;(add-hook 'go-mode-hook 'lsp-deferred)
 	     )
 
 ;; Set up before-save hooks to format buffer and add/delete imports.
@@ -119,6 +118,7 @@
 	     :config
 	     ;; FIXME
 	     ;;(setq company-format-margin-function #'company-vscode-dark-icons-margin)
+	     (setq company-minimum-prefix-length 1 company-idle-delay 0.0) ;; default is 0.2
 	     )
 (setq company-format-margin-function #'company-detect-icons-margin)
 
@@ -129,6 +129,12 @@
 ;; programming modes
 ;; https://emacs.stackexchange.com/questions/278/how-do-i-display-line-numbers-in-emacs-not-in-the-mode-line
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+
+;; Enable which-key
+;; https://github.com/justbur/emacs-which-key/#melpa
+(use-package which-key
+  :ensure t
+  )
 
 ;; Enable Magit
 (use-package magit
