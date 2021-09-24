@@ -51,7 +51,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(format-all all-the-icons lsp-python-ms rainbow-delimiters smartparens treemacs company-box magit flycheck company lsp-ui lsp-mode cl-lib eldoc go-eldoc auto-complete go-mode)))
+   '(terraform-doc company-terraform terraform-mode format-all all-the-icons lsp-python-ms rainbow-delimiters smartparens treemacs company-box magit flycheck company lsp-ui lsp-mode cl-lib eldoc go-eldoc auto-complete go-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -95,6 +95,19 @@
   (add-hook 'go-mode-hook (lambda ()
 			    (local-set-key (kbd "M-.") 'godef-jump)))
   )
+
+;; Enable terraform-mode
+;; https://github.com/emacsorphanage/terraform-mode
+(use-package terraform-mode
+  :ensure t)
+
+;; Enable company backend for Terraform
+(use-package company-terraform
+  :ensure t)
+
+;; Enable Terraform-doc
+(use-package terraform-doc
+  :ensure t)
 
 ;; Set up before-save hooks to format buffer and add/delete imports.
 ;; Make sure you don't have other gofmt/goimports hooks enabled.

@@ -106,6 +106,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias e="emacsclient --tty"
+alias tf="terraform"
 
 # Export an alternative editor so the Emacs server automatically starts
 export ALTERNATE_EDITOR=""
