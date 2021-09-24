@@ -1,31 +1,30 @@
 
 # Table of Contents
 
-1.  [README.md \*](#orga5ecfa1)
-2.  [Usage \*](#org7860c6d)
-3.  [References \*](#orgb715c2c)
+1.  [My Dotfiles](#org5016495)
+2.  [Usage](#org5734c9a)
+3.  [References](#org817c3b5)
 
 
-<a id="orga5ecfa1"></a>
+<a id="org5016495"></a>
 
-# README.md \*
+# My Dotfiles
 
 This is a collection of the dotfiles I use with Unix systems. The most interesting aspect is the \`emacs.d\` directory.
 
 
-<a id="org7860c6d"></a>
+<a id="org5734c9a"></a>
 
-# Usage \*
+# Usage
 
 Configure the appropriate files and links in \`install.conf.yaml\` and the use the following:
 
     ./install
 
 
-<a id="orgb715c2c"></a>
+<a id="org817c3b5"></a>
 
-# References \*
+# References
 
 -   <https://github.com/anishathalye/dotbot>
 -   <https://github.com/MCotocel/dotfiles>
-
