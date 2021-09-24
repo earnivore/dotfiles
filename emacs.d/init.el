@@ -31,7 +31,7 @@
 (defvar --backup-directory (concat user-emacs-directory "backups"))
 (if (not (file-exists-p --backup-directory))
     (make-directory --backup-directory t))
-(setq backup-directory-alist `(("." . --backup-directory)))
+(setq backup-directory-alist `(("." . ,--backup-directory)))
 (setq make-backup-files t               ; backup of a file the first time it is saved.
       backup-by-copying t               ; don't clobber symlinks
       version-control t                 ; version numbers for backup files
@@ -51,8 +51,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   (quote
-    (which-key format-all all-the-icons lsp-python-ms rainbow-delimiters smartparens treemacs company-box magit flycheck company lsp-ui lsp-mode cl-lib eldoc go-eldoc auto-complete go-mode))))
+   '(format-all all-the-icons lsp-python-ms rainbow-delimiters smartparens treemacs company-box magit flycheck company lsp-ui lsp-mode cl-lib eldoc go-eldoc auto-complete go-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
