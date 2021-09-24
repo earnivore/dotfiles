@@ -66,13 +66,14 @@
   :init
   ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
   (setq lsp-keymap-prefix "C-c l")
-  ;;(add-hook 'go-mode 'lsp)
 
   :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
 	 ;; Python LSP will need to be installed with
 	 ;; `pip install python-lsp-server` (A maintained fork of pyls)
-         (python-mode . lsp-deferred)
-         (go-mode . lsp-deferred)
+	 ;; `pip install python-lsp-server[all]`
+	 ;; include the pylsp and gopls binaries on your path!
+         (python-mode . lsp)
+         (go-mode . lsp)
          ;; if you want which-key integration
          (lsp-mode . lsp-enable-which-key-integration))
   :commands (lsp lsp-deferred))
@@ -92,8 +93,7 @@
   (add-hook 'go-mode-hook (lambda ()
 			    (local-set-key (kbd "C-c i") 'go-goto-imports)))
   (add-hook 'go-mode-hook (lambda ()
-			    (local-set-key (kbd \"M-.\") 'godef-jump)))
-  ;;(add-hook 'go-mode-hook 'lsp-deferred)
+			    (local-set-key (kbd "M-.") 'godef-jump)))
   )
 
 ;; Set up before-save hooks to format buffer and add/delete imports.
