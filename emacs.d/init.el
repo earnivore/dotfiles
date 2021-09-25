@@ -52,7 +52,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (treemacs-magit treemacs-projectile projectile terraform-doc company-terraform terraform-mode markdown-preview-mode which-key format-all all-the-icons lsp-python-ms rainbow-delimiters smartparens treemacs company-box magit flycheck company lsp-ui lsp-mode cl-lib eldoc go-eldoc auto-complete go-mode))))
+    (helm treemacs-magit treemacs-projectile projectile terraform-doc company-terraform terraform-mode markdown-preview-mode which-key format-all all-the-icons lsp-python-ms rainbow-delimiters smartparens treemacs company-box magit flycheck company lsp-ui lsp-mode cl-lib eldoc go-eldoc auto-complete go-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -301,6 +301,15 @@
 ;; Requires a spellchecker binary on the system, i.e.:
 ;; brew install aspell
 (add-hook 'org-mode-hook 'flyspell-mode)
+
+;; Install Helm
+;; https://emacs-helm.github.io/helm/
+(use-package helm
+  :ensure t
+  :config
+  (helm-mode 1)
+  (global-set-key (kbd "M-x") 'helm-M-x)
+  (global-set-key (kbd "C-x C-f") 'helm-find-files))
 
 ;; Set a global key for compile with a Makefile
 ;; https://emacs.stackexchange.com/questions/17280/how-to-set-up-hotkey-for-compiling-c-code-and-run-the-compiled-file
