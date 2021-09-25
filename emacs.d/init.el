@@ -51,7 +51,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(terraform-doc company-terraform terraform-mode format-all all-the-icons lsp-python-ms rainbow-delimiters smartparens treemacs company-box magit flycheck company lsp-ui lsp-mode cl-lib eldoc go-eldoc auto-complete go-mode)))
+   (quote
+    (treemacs-magit treemacs-projectile projectile terraform-doc company-terraform terraform-mode markdown-preview-mode which-key format-all all-the-icons lsp-python-ms rainbow-delimiters smartparens treemacs company-box magit flycheck company lsp-ui lsp-mode cl-lib eldoc go-eldoc auto-complete go-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -181,6 +182,15 @@
   :config
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
+;; Add Projectile
+;; https://github.com/bbatsov/projectile
+(use-package projectile
+  :ensure t
+  :config
+  (projectile-mode +1)
+  ;; Recommended keymap prefix on Windows/Linux
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+
 ;; Add Treemacs
 (use-package treemacs
   :ensure t
@@ -262,12 +272,29 @@
         ("C-x t C-t" . treemacs-find-file)
         ("C-x t M-t" . treemacs-find-tag)))
 
+;; Add Treemacs compatibility with Projectile
+(use-package treemacs-projectile
+  :ensure t)
+
+;; Add Treemacs compatibility with Magit
+(use-package treemacs-magit
+  :ensure t)
+
+;; Add all-the-icons theme for Treemacs
+;; then run M-x all-the-icons-install-fonts
+(use-package treemacs-all-the-icons
+  :ensure t)
+
+;; Load the all-the-icons theme for Treemacs
+(treemacs-load-theme "all-the-icons")
+
 ;; Enable more languages for Org Babel
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((emacs-lisp . t)
    (R . t)
-   (python . t)))
+   (python . t)
+   (shell . t)))
 
 ;; Enable spellchecker for Org mode
 ;; https://github.com/MCotocel/dotfiles/blob/main/config/emacs/emacs.org#miscellaneous-minor-modes
