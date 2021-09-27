@@ -52,7 +52,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (helm treemacs-magit treemacs-projectile projectile terraform-doc company-terraform terraform-mode markdown-preview-mode which-key format-all all-the-icons lsp-python-ms rainbow-delimiters smartparens treemacs company-box magit flycheck company lsp-ui lsp-mode cl-lib eldoc go-eldoc auto-complete go-mode))))
+    (terraform-doc which-key use-package treemacs-projectile treemacs-magit treemacs-all-the-icons smartparens rainbow-delimiters markdown-preview-mode lsp-ui helm go-mode format-all flycheck company-terraform centaur-tabs beacon))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -310,6 +310,38 @@
   (helm-mode 1)
   (global-set-key (kbd "M-x") 'helm-M-x)
   (global-set-key (kbd "C-x C-f") 'helm-find-files))
+
+;; Add WinMove keybinds
+;; https://www.emacswiki.org/emacs/WindMove
+(global-set-key (kbd "C-c <left>")  'windmove-left)
+(global-set-key (kbd "C-c <right>") 'windmove-right)
+(global-set-key (kbd "C-c <up>")    'windmove-up)
+(global-set-key (kbd "C-c <down>")  'windmove-down)
+
+;; Add Markdown mode
+(use-package markdown-mode
+  :ensure t)
+
+;; Add Beacon mode
+;; https://github.com/Malabarba/beacon
+(use-package beacon
+  :ensure t)
+(beacon-mode 1)
+
+;; Add Centaur Tabs
+;; https://github.com/ema2159/centaur-tabs
+(use-package centaur-tabs
+  :demand
+  :config
+  (centaur-tabs-mode t)
+  (setq centaur-tabs-enable-key-bindings t)
+  (setq centaur-tabs-style "rounded")
+  (setq centaur-tabs-set-icons t)
+  (setq centaur-tabs-gray-out-icons 'buffer)
+  ;;(setq centaur-tabs-set-bar 'left)
+  :bind
+  ("C-<prior>" . centaur-tabs-backward) ;; aka page down
+  ("C-<next>" . centaur-tabs-forward))
 
 ;; Set a global key for compile with a Makefile
 ;; https://emacs.stackexchange.com/questions/17280/how-to-set-up-hotkey-for-compiling-c-code-and-run-the-compiled-file
