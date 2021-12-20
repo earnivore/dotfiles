@@ -7,5 +7,4 @@
     ~/.gitconfig: gitconfig
     ~/.tmux.conf: tmux.conf
     ~/.zshrc: zshrc
-    ~/.emacs.d: emacs.d
-
+    ~/.doom.d: doom.d
