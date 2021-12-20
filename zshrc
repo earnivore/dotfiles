@@ -125,3 +125,7 @@ if [ -f '~/google-cloud-sdk/completion.zsh.inc' ]; then . '~/google-cloud-sdk/co
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux
 fi
+
+# Add bindings to Vim CLI mode
+bindkey "^R" history-incremental-search-backward
+bindkey -M viins 'jk' vi-cmd-mode
