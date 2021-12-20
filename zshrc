@@ -127,5 +127,6 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
 fi
 
 # Add bindings to Vim CLI mode
+bindkey -v
 bindkey "^R" history-incremental-search-backward
 bindkey -M viins 'jk' vi-cmd-mode
