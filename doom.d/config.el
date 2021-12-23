@@ -65,3 +65,7 @@
         :desc "terraform plan" "p" (cmd! (compile "terraform plan"))
         :desc "terraform plan with vars/vars.tfvars" "v" (cmd! (compile "VARS=$(find vars | grep .tfvars) && terraform plan -var-file=$VARS"))
         :desc "terraform plan output plan" "o" (cmd! (compile "UNIX=$(date '+%s') && terraform plan -out tf-plan-$UNIX.zip"))))
+
+;; Enable Beacon mode
+;; https://github.com/Malabarba/beacon
+(beacon-mode 1)

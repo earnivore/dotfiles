@@ -50,3 +50,7 @@
 ;(unpin! t)
 (package! rego-mode)
 (package! dockerfile-mode)
+
+;; Add Beacon
+;; https://github.com/Malabarba/beacon
+(package! beacon :pin "bde7818")
