@@ -1,5 +1,8 @@
 - clean: ['~']
 
+- create:
+    - ~/.config/awesome
+
 - link:
     ~/.profile: profile
     ~/.bashrc: bashrc
@@ -9,3 +12,6 @@
     ~/.zshrc: zshrc
     ~/.doom.d: doom.d
     ~/.Xresources: Xresources
+    ~/.config/awesome/rc.lua: rc.lua
+    ~/.config/awesome/theme.lua: theme.lua
+
