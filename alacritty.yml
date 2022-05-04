@@ -1,0 +1,39 @@
+colors:
+  # Default colors
+  primary:
+    background: '0x20201d'
+    foreground: '0xa6a28c'
+
+  # Normal colors
+  normal:
+    black:   '0x20201d'
+    red:     '0xd73737'
+    green:   '0x60ac39'
+    yellow:  '0xcfb017'
+    blue:    '0x6684e1'
+    magenta: '0xb854d4'
+    cyan:    '0x1fad83'
+    white:   '0xa6a28c'
+
+  # Bright colors
+  bright:
+    black:   '0x7d7a68'
+    red:     '0xd73737'
+    green:   '0x60ac39'
+    yellow:  '0xcfb017'
+    blue:    '0x6684e1'
+    magenta: '0xb854d4'
+    cyan:    '0x1fad83'
+    white:   '0xfefbec'
+
+shell:
+  program: /usr/bin/zsh
+
+  
+window:
+    # Blank space added around the window in pixels. This padding is scaled
+    #   # by DPI and the specified value is always added at both opposing sides.
+  opacity: 2.4
+  padding:
+    x: 20
+    y: 20
