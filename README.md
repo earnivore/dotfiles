@@ -1,16 +1,6 @@
-# Table of Contents
+# My Dotfiles
 
-1.  [My Dotfiles](#org5016495)
-2.  [Usage](#org5734c9a)
-3.  [References](#org817c3b5)
-
-<a id="org5016495"></a>
-
-## My Dotfiles
-
-This is a collection of the dotfiles I use with Unix systems. The most interesting aspect is the \`emacs.d\` directory.
-
-<a id="org5734c9a"></a>
+Welcome to my dotfiles! My latest iteration of comfort tools are SwayWM and Alacritty.
 
 ## Usage
 
@@ -18,18 +8,12 @@ Configure the appropriate files and links in \`install.conf.yaml\` and the use t
 
     ./install
 
-<a id="org817c3b5"></a>
-
-## TODO
-
-- Add specific branches to `packages.el`
-- Remove old Emacs config
-- Add old Emacs config to Doom
-- Clean up boilerplate text / files
-- Fix README
-
 ## References
 
--   <https://github.com/anishathalye/dotbot>
--   <https://github.com/MCotocel/dotfiles>
--   <https://github.com/hlissner/doom-emacs>
+These configuration files has been inspired or stolen from a variety of corners of the internet; here are a few of them:
+
+- https://swaywm.org/
+- https://github.com/Alexays/Waybar
+- https://github.com/dracula/wofi
+- https://gitlab.com/rigopoui/dotfiles-and-themes/
+- https://github.com/anishathalye/dotbot
