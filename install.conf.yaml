@@ -2,10 +2,16 @@
 
 - create:
     - ~/.config/awesome
+    - ~/.config/alacritty
+    - ~/.config/picom
+    - ~/.config/sway
+    - ~/.config/waybar
+    - ~/.config/wofi
 
 - link:
     ~/.profile: profile
     ~/.bashrc: bashrc
+    ~/.xinitrc: xinitrc
     ~/.bash_logout: bash_logout
     ~/.gitconfig: gitconfig
     ~/.tmux.conf: tmux.conf
@@ -14,4 +20,10 @@
     ~/.Xresources: Xresources
     ~/.config/awesome/rc.lua: rc.lua
     ~/.config/awesome/theme.lua: theme.lua
-
+    ~/.config/alacritty/alacritty.yml: alacritty.yml
+    ~/.config/picom/picom.conf: picom.conf
+    ~/.config/sway/config: sway-config
+    ~/.config/sway/andromeda.jpg: andromeda.jpg
+    ~/.config/waybar/config: waybar-config
+    ~/.config/waybar/style.css: waybar-style.css
+    ~/.config/wofi/style.css: wofi-style.css
