@@ -16,3 +16,5 @@
     ~/.config/waybar/config: waybar-config
     ~/.config/waybar/style.css: waybar-style.css
     ~/.config/wofi/style.css: wofi-style.css
+    ~/.vimrc: vimrc
+
