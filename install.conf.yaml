@@ -17,4 +17,5 @@
     ~/.config/waybar/style.css: waybar-style.css
     ~/.config/wofi/style.css: wofi-style.css
     ~/.vimrc: vimrc
+    ~/.oh-my-zsh/themes/personal.zsh-theme: personal.zsh-theme
 
