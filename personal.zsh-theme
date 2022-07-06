@@ -2,7 +2,7 @@
 # modified from the original Oh-My-Zsh theme "darkblood.zsh-theme"
 
 PROMPT=$'%{$fg[red]%}[%{$fg_bold[white]%}%n%{$reset_color%}%{$fg[red]%}@%{$fg_bold[white]%}%m%{$reset_color%}%{$fg[red]%}][%{$fg_bold[blue]%}%~%{$reset_color%}%{$fg[red]%}][%{$fg_bold[green]%}/dev/%y%{$reset_color%}%{$fg[red]%}]%{$(git_prompt_info)%}%(?,,%{$fg[red]%}[%{$fg_bold[white]%}%?%{$reset_color%}%{$fg[red]%}])
-%{$fg[red]%}%{%G%}%{$reset_color%} '
+%{$fg[red]%}%{%G$%}%{$reset_color%} '
 PS2=$'%{$fg[red]%}>%{$reset_color%} '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[red]%}[%{$fg_bold[white]%}"
