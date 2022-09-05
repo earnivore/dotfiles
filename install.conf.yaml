@@ -18,4 +18,6 @@
     ~/.config/wofi/style.css: wofi-style.css
     ~/.vimrc: vimrc
     ~/.oh-my-zsh/themes/personal.zsh-theme: personal.zsh-theme
-
+    # Settings location will differ based on platform
+    # https://stackoverflow.com/questions/65908987/how-can-i-open-visual-studio-codes-settings-json-file
+    ~/.config/Code/User/settings.json: vscode-settings.json
