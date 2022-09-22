@@ -111,6 +111,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias e="emacsclient --tty"
 alias tf="terraform"
+# aliases for gcloud configurations
+alias gcl="gcloud config list"
+alias gcca="gcloud config configurations activate"
+alias gccl="gcloud config configurations list"
 
 # Export an alternative editor so the Emacs server automatically starts
 export ALTERNATE_EDITOR=""
