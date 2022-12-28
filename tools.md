@@ -7,3 +7,4 @@
 - btop: https://github.com/aristocratos/btop
 - podman: https://podman.io/getting-started/installation
 - k9s: https://k9scli.io/
+- skaffold: https://github.com/GoogleContainerTools/skaffold
