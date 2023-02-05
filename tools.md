@@ -9,4 +9,5 @@
 - k9s: https://k9scli.io/
 - skaffold: https://github.com/GoogleContainerTools/skaffold
 - zoxide: https://github.com/ajeetdsouza/zoxide
+- kubeshark: https://github.com/kubeshark/kubeshark
 

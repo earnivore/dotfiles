@@ -135,5 +135,10 @@ fi
 bindkey -v
 bindkey "^R" history-incremental-search-backward
 bindkey -M viins 'jk' vi-cmd-mode
+
 # add zoxide
 eval "$(zoxide init zsh)"
+
+# add Kubectl Krew plugin manager
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
