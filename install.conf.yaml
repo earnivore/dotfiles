@@ -5,6 +5,7 @@
     - ~/.config/sway
     - ~/.config/waybar
     - ~/.config/wofi
+    - ~/.config/Code/User
 
 - link:
     ~/.gitconfig: gitconfig

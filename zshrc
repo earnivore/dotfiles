@@ -119,12 +119,6 @@ alias gccl="gcloud config configurations list"
 # Export an alternative editor so the Emacs server automatically starts
 export ALTERNATE_EDITOR=""
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '~/google-cloud-sdk/path.zsh.inc' ]; then . '~/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '~/google-cloud-sdk/completion.zsh.inc' ]; then . '~/google-cloud-sdk/completion.zsh.inc'; fi
-
 # Start TMUX on every shell login
 # https://unix.stackexchange.com/questions/43601/how-can-i-set-my-default-shell-to-start-up-tmux
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
@@ -142,3 +136,17 @@ eval "$(zoxide init zsh)"
 # add Kubectl Krew plugin manager
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/jackson.reid/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jackson.reid/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/jackson.reid/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jackson.reid/google-cloud-sdk/completion.zsh.inc'; fi
+
+# fzf
+# source /usr/share/fzf/shell/key-bindings.zsh
+export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --color=always --line-range :500 {}'"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+bindkey "ç" fzf-cd-widget

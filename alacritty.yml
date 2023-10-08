@@ -27,7 +27,7 @@ colors:
     white:   '0xfefbec'
 
 shell:
-  program: /usr/bin/zsh
+  program: /bin/zsh
 
   
 window:
