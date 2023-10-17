@@ -144,9 +144,15 @@ if [ -f '/Users/jackson.reid/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ja
 if [ -f '/Users/jackson.reid/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jackson.reid/google-cloud-sdk/completion.zsh.inc'; fi
 
 # fzf
-# source /usr/share/fzf/shell/key-bindings.zsh
+# the below source may differ, use apt show to see which dir to use
+#source /usr/share/fzf/shell/key-bindings.zsh
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
 export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --color=always --line-range :500 {}'"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 bindkey "ç" fzf-cd-widget
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
