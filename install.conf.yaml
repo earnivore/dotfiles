@@ -2,9 +2,6 @@
 
 - create:
     - ~/.config/alacritty
-    - ~/.config/sway
-    - ~/.config/waybar
-    - ~/.config/wofi
     - ~/.config/Code/User
 
 - link:
@@ -12,11 +9,6 @@
     ~/.tmux.conf: tmux.conf
     ~/.zshrc: zshrc
     ~/.config/alacritty/alacritty.yml: alacritty.yml
-    ~/.config/sway/config: sway-config
-    ~/.config/sway/andromeda.jpg: andromeda.jpg
-    ~/.config/waybar/config: waybar-config
-    ~/.config/waybar/style.css: waybar-style.css
-    ~/.config/wofi/style.css: wofi-style.css
     ~/.vimrc: vimrc
     ~/.oh-my-zsh/themes/personal.zsh-theme: personal.zsh-theme
     # Settings location will differ based on platform
